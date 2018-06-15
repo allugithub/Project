@@ -11,6 +11,7 @@ public class FindDuplicate {
 		HashMap <Character,Integer> map=new HashMap();
 		for (char c : ch) {
 			if(map.containsKey(c)) {
+				System.out.println("from..."+map.get(c));
 				map.put(c, map.get(c)+1);
 			}else {
 				map.put(c, 1);
@@ -30,7 +31,7 @@ public class FindDuplicate {
 	
 
 	public static void main(String[] args) {
-		duplicateChar("rama for rarm one is ma");
+		duplicateChar("internationalization");
 
 	}
 

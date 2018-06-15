@@ -15,7 +15,7 @@ public class Angram {
 		return Arrays.equals(c1, c2);
 	}
 	public static void main(String[] args) {
-		System.out.println(angramOrNOt("Dormitory", "Dirty Room"));
+		System.out.println(angramOrNOt("sachin", "Sacnhi"));
 
 	}
 
