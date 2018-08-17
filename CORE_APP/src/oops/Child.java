@@ -1,5 +1,7 @@
 package oops;
 
+import java.util.Scanner;
+
 public class Child extends Parent {
 
 	void m2() {
@@ -7,7 +9,9 @@ public class Child extends Parent {
 	}
 	public static void main(String[] args) {
 		Parent p=new Child();
-		//p.m2();
-		p.m1();
+		Scanner sc=new Scanner(System.in);
+		p.m2();
+		//p.m1();
 	}
 }
+ 

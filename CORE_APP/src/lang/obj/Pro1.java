@@ -1,16 +1,14 @@
 package lang.obj;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Pro1 {
-	{
-		System.out.println("123  "+toString());
-		//System.out.println(hashCode());
-	}
+	
 
 	public static void main(String[] args) {
-		Pro1 p=new Pro1();
-		
-		
-
+		String z=null;
+		//System.out.println(null);
 	}
 
 }

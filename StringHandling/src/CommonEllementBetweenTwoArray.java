@@ -19,6 +19,7 @@ public class CommonEllementBetweenTwoArray {
        System.out.println("The Duplicate Element is "+hs);*/
 	
 		HashSet<String> h1=new HashSet<>(Arrays.asList(s1));
+		System.out.println(h1);
 		HashSet<String> h2=new HashSet<>(Arrays.asList(s2));
 		h1.retainAll(h2);
 		System.out.println(h1);
