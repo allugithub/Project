@@ -1,9 +1,10 @@
 import java.util.Arrays;
 
 /*Two strings are called anagrams if they contain same set of characters but in
-different order. For example, “Dormitory – Dirty Room”, “keep – peek”,  
-“School Master – The Classroom” are some anagrams.
+different order. For example, â€œDormitory â€“ Dirty Roomâ€, â€œkeep â€“ peekâ€,  
+â€œSchool Master â€“ The Classroomâ€ are some anagrams.
 */
+//commited from Git
 public class Angram {
 
 	public static boolean angramOrNOt(String s1, String s2) {
