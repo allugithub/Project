@@ -8,6 +8,7 @@ public class Solution {
 
     /*
      * Complete the simpleArraySum function below.
+     one new added at line no 11
      */
     static int simpleArraySum(int[] ar) {
         int sum=0;
