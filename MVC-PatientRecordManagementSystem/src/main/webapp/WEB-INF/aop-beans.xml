@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+   <bean id="hbTxn" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+     <property name="sessionFactory" ref="hbSessionFactory"/>
+   </bean>
+   
+   <tx:advice id="hbTxMgr" transaction-manager="hbTxn">
+     <tx:attributes>
+      <tx:method name="doRegistration" propagation="REQUIRED"/>
+      <tx:method name="getAllPatientData" propagation="REQUIRED" read-only="true"/>
+      <tx:method name="fetchPatientInfoById" propagation="REQUIRED" read-only="true"/>
+     </tx:attributes>
+   </tx:advice>
+
+   <aop:config>
+    <aop:pointcut id="doRegistrationPointCut"
+      expression="execution(* com.rk.service.PatientRegistrationServiceImpl.doRegistration(..))"/>
+     <aop:advisor advice-ref="hbTxMgr" pointcut-ref="doRegistrationPointCut"/>
+     
+     <aop:advisor advice-ref="hbTxMgr"  pointcut="execution(* com.rk.service.PatientRegistrationServiceImpl.fetchPatientInfoById(..))" />
+     
+     <aop:advisor advice-ref="hbTxMgr" pointcut="execution(* com.rk.service.PatientRegistrationServiceImpl.getAllPatientData(..))"/>
+   </aop:config>
+ 
+    <context:component-scan base-package="com.rk.aspect"/>
+   <aop:aspectj-autoproxy/>
+   
+   <tx:annotation-driven transaction-manager="hbTxn"/>
+   
+</beans>
